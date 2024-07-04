@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>org.basepom</groupId>
+        <artifactId>basepom-oss</artifactId>
+        <version>59</version>
+    </parent>
+
+    <groupId>io.github.spannm</groupId>
+    <artifactId>leetcode</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
+    <packaging>jar</packaging>
+
+    <name>${project.artifactId}</name>
+    <description>Solutions to LeetCode coding problems</description>
+    <url>https://github.com/${developerId}/${project.artifactId}</url>
+    <inceptionYear>2023</inceptionYear>
+
+    <licenses>
+        <license>
+           <name>MIT License</name>
+           <url>${project.url}/blob/master/LICENSE</url>
+       </license>
+    </licenses>
+
+    <developers>
+        <developer>
+            <id>${developerId}</id>
+            <name>Markus S.</name>
+            <email>spannm@outlook.de</email>
+            <organizationUrl>https://github.com/${developerId}/</organizationUrl>
+        </developer>
+    </developers>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
+        <project.build.systemJdk>17</project.build.systemJdk>
+        <project.build.targetJdk>17</project.build.targetJdk>
+
+        <developerId>spannm</developerId>
+
+        <dep.plugin.sortpom.version>4.0.0</dep.plugin.sortpom.version>
+
+        <dep.javapoet.version>1.13.0</dep.javapoet.version>
+        <dep.slf4j-api.version>2.1.0-alpha1</dep.slf4j-api.version>
+        <dep.junit.version>5.10.2</dep.junit.version>
+        <dep.assertj.version>3.26.0</dep.assertj.version>
+
+        <basepom.check.fail-dependency>false</basepom.check.fail-dependency>
+        <basepom.check.skip-spotbugs>true</basepom.check.skip-spotbugs>
+        <basepom.check.skip-license>true</basepom.check.skip-license>
+    </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.junit</groupId>
+                <artifactId>junit-bom</artifactId>
+                <version>${dep.junit.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <dependencies>
+
+        <dependency>
+            <groupId>com.squareup</groupId>
+            <artifactId>javapoet</artifactId>
+            <version>${dep.javapoet.version}</version>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>${dep.slf4j-api.version}</version>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-simple</artifactId>
+            <version>${dep.slf4j-api.version}</version>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-api</artifactId>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-params</artifactId>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.junit.platform</groupId>
+            <artifactId>junit-platform-launcher</artifactId>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.junit.platform</groupId>
+            <artifactId>junit-platform-engine</artifactId>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.assertj</groupId>
+            <artifactId>assertj-core</artifactId>
+            <version>${dep.assertj.version}</version>
+            <scope>test</scope>
+        </dependency>
+
+    </dependencies>
+
+    <build>
+
+        <defaultGoal>clean verify</defaultGoal>
+
+        <pluginManagement>
+
+            <plugins>
+
+                <plugin>
+                    <artifactId>maven-checkstyle-plugin</artifactId>
+                    <configuration>
+                        <configLocation>src/test/resources/team/checkstyle-rules.xml</configLocation>
+                    </configuration>
+                </plugin>
+
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-pmd-plugin</artifactId>
+                    <configuration>
+                        <rulesets>
+                            <ruleset>src/test/resources/team/pmd-rules.xml</ruleset>
+                        </rulesets>
+                    </configuration>
+                </plugin>
+
+                <plugin>
+                    <groupId>com.github.ekryd.sortpom</groupId>
+                    <artifactId>sortpom-maven-plugin</artifactId>
+                    <version>${dep.plugin.sortpom.version}</version>
+                    <configuration>
+                        <createBackupFile>false</createBackupFile>
+                        <expandEmptyElements>false</expandEmptyElements>
+                        <nrOfIndentSpace>4</nrOfIndentSpace>
+                    </configuration>
+                </plugin>
+
+            </plugins>
+        </pluginManagement>
+
+    </build>
+
+    <profiles>
+        <profile>
+            <id>fast</id>
+            <!-- Profile to skip time-consuming steps. -->
+            <activation>
+                <activeByDefault>false</activeByDefault>
+            </activation>
+            <properties>
+                <!-- skip _compiling_ the tests -->
+                <maven.test.skip>true</maven.test.skip>
+                <!-- skip test execution -->
+                <skipTests>true</skipTests>
+
+                <maven.javadoc.skip>true</maven.javadoc.skip>
+                <basepom.check.skip-extended>true</basepom.check.skip-extended>
+            </properties>
+        </profile>
+    </profiles>
+
+</project>
