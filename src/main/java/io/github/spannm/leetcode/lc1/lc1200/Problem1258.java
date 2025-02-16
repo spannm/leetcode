@@ -44,6 +44,7 @@ class Problem1258 extends LeetcodeProblem {
         return sb.substring(0, sb.length() - 1);
     }
 
+    @SuppressWarnings("PMD.UseArraysAsList")
     private Map<String, Set<String>> buildSynonymDict(String[] _words, List<List<String>> _synonyms) {
         Map<String, Set<String>> map = new HashMap<>();
         for (String key : _words) {

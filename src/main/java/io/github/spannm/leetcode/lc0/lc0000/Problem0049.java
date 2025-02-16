@@ -9,6 +9,7 @@ import java.util.*;
  */
 class Problem0049 extends LeetcodeProblem {
 
+    @SuppressWarnings("PMD.UseArraysAsList")
     List<List<String>> groupAnagrams(String[] _strs) {
         Map<List<String>, List<String>> grouped = new LinkedHashMap<>();
         for (String s : _strs) {

@@ -11,6 +11,7 @@ import java.util.List;
  */
 class Problem2451 extends LeetcodeProblem {
 
+    @SuppressWarnings("PMD.UseArraysAsList")
     String oddString(String[] words) {
         var d = new HashMap<String, List<String>>();
         for (var s : words) {

@@ -6,6 +6,7 @@ import java.util.*;
 
 class Problem0249 extends LeetcodeProblem {
 
+    @SuppressWarnings("PMD.UseArraysAsList")
     List<List<String>> groupStrings(String[] _strings) {
 
         List<List<String>> result = new ArrayList<>();

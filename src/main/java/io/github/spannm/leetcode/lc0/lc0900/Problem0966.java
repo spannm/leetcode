@@ -2,20 +2,16 @@ package io.github.spannm.leetcode.lc0.lc0900;
 
 import io.github.spannm.leetcode.LeetcodeProblem;
 
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 
 class Problem0966 extends LeetcodeProblem {
 
     String[] spellchecker(String[] _wordlist, String[] _queries) {
         Map<String, String> caseMap = new HashMap<>();
-        Set<String> set = new HashSet<>();
+        Set<String> set = new HashSet<>(Arrays.asList(_wordlist));
 
         for (String word : _wordlist) {
             caseMap.putIfAbsent(word.toLowerCase(), word);
-            set.add(word);
         }
 
         Map<String, String> vowelMap = new HashMap<>();
