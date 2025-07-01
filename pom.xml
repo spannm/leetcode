@@ -5,7 +5,7 @@
     <parent>
         <groupId>org.basepom</groupId>
         <artifactId>basepom-oss</artifactId>
-        <version>61</version>
+        <version>63</version>
     </parent>
 
     <groupId>io.github.spannm</groupId>
@@ -46,7 +46,7 @@
 
         <dep.javapoet.version>1.13.0</dep.javapoet.version>
         <dep.slf4j-api.version>2.1.0-alpha1</dep.slf4j-api.version>
-        <dep.junit.version>5.10.4</dep.junit.version>
+        <dep.junit.version>5.13.2</dep.junit.version>
         <dep.assertj.version>3.27.3</dep.assertj.version>
 
         <basepom.check.fail-dependency>false</basepom.check.fail-dependency>
