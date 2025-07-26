@@ -28,7 +28,7 @@
     <developers>
         <developer>
             <id>${developerId}</id>
-            <name>Markus S.</name>
+            <name>Markus Spann</name>
             <email>spannm@outlook.de</email>
             <organizationUrl>https://github.com/${developerId}/</organizationUrl>
         </developer>
@@ -45,13 +45,19 @@
         <dep.plugin.sortpom.version>4.0.0</dep.plugin.sortpom.version>
 
         <dep.javapoet.version>1.13.0</dep.javapoet.version>
-        <dep.slf4j-api.version>2.1.0-alpha1</dep.slf4j-api.version>
-        <dep.junit.version>5.13.2</dep.junit.version>
+        <dep.slf4j.version>2.0.17</dep.slf4j.version>
+        <dep.junit.version>5.13.4</dep.junit.version>
         <dep.assertj.version>3.27.3</dep.assertj.version>
 
         <basepom.check.fail-dependency>false</basepom.check.fail-dependency>
         <basepom.check.skip-spotbugs>true</basepom.check.skip-spotbugs>
         <basepom.check.skip-license>true</basepom.check.skip-license>
+
+        <basepom.javadoc.skip>false</basepom.javadoc.skip>
+        <basepom.javadoc.show>protected</basepom.javadoc.show>
+
+        <basepom.site.scm.branch>master</basepom.site.scm.branch>
+        <basepom.site.skip-deploy>false</basepom.site.skip-deploy>
     </properties>
 
     <dependencyManagement>
@@ -78,14 +84,14 @@
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-api</artifactId>
-            <version>${dep.slf4j-api.version}</version>
+            <version>${dep.slf4j.version}</version>
             <scope>test</scope>
         </dependency>
 
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-simple</artifactId>
-            <version>${dep.slf4j-api.version}</version>
+            <version>${dep.slf4j.version}</version>
             <scope>test</scope>
         </dependency>
 
@@ -110,6 +116,18 @@
         <dependency>
             <groupId>org.junit.platform</groupId>
             <artifactId>junit-platform-engine</artifactId>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-engine</artifactId>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.junit.platform</groupId>
+            <artifactId>junit-platform-commons</artifactId>
             <scope>test</scope>
         </dependency>
 
