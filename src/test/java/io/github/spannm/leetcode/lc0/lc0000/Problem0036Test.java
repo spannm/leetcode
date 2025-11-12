@@ -8,6 +8,7 @@ import org.junit.jupiter.params.converter.ConvertWith;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.ArgumentsProvider;
 import org.junit.jupiter.params.provider.ArgumentsSource;
+import org.junit.jupiter.params.support.ParameterDeclarations;
 
 import java.util.stream.Stream;
 
@@ -22,7 +23,7 @@ class Problem0036Test extends LeetcodeBaseTest {
 
     static class SudokuArgumentsProvider implements ArgumentsProvider {
         @Override
-        public Stream<? extends Arguments> provideArguments(ExtensionContext _context) {
+        public Stream<Arguments> provideArguments(ParameterDeclarations _parameters, ExtensionContext _context) {
             return Stream.of(
                 Arguments.of("""
                     [[5,3,.,.,7,.,.,.,.]

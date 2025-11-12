@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
         <groupId>org.basepom</groupId>
         <artifactId>basepom-oss</artifactId>
-        <version>63</version>
+        <version>66</version>
     </parent>
 
     <groupId>io.github.spannm</groupId>
@@ -15,7 +17,7 @@
 
     <name>${project.artifactId}</name>
     <description>Solutions to LeetCode coding problems</description>
-    <url>https://github.com/${developerId}/${project.artifactId}</url>
+    <url>${githubBaseUrl}${project.artifactId}</url>
     <inceptionYear>2023</inceptionYear>
 
     <licenses>
@@ -36,17 +38,22 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
+        <!-- The minimum JDK version required to build. -->
         <project.build.systemJdk>17</project.build.systemJdk>
+        <!-- The default build target. -->
         <project.build.targetJdk>17</project.build.targetJdk>
 
         <developerId>spannm</developerId>
+        <githubBaseUrl>https://github.com/${developerId}/</githubBaseUrl>
 
         <dep.plugin.sortpom.version>4.0.0</dep.plugin.sortpom.version>
 
         <dep.javapoet.version>1.13.0</dep.javapoet.version>
         <dep.slf4j.version>2.0.17</dep.slf4j.version>
-        <dep.junit.version>5.13.4</dep.junit.version>
+
+        <dep.junit.version>6.0.1</dep.junit.version>
         <dep.assertj.version>3.27.3</dep.assertj.version>
 
         <basepom.check.fail-dependency>false</basepom.check.fail-dependency>
@@ -59,18 +66,6 @@
         <basepom.site.scm.branch>master</basepom.site.scm.branch>
         <basepom.site.skip-deploy>false</basepom.site.skip-deploy>
     </properties>
-
-    <dependencyManagement>
-        <dependencies>
-            <dependency>
-                <groupId>org.junit</groupId>
-                <artifactId>junit-bom</artifactId>
-                <version>${dep.junit.version}</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>
-        </dependencies>
-    </dependencyManagement>
 
     <dependencies>
 
@@ -97,37 +92,8 @@
 
         <dependency>
             <groupId>org.junit.jupiter</groupId>
-            <artifactId>junit-jupiter-api</artifactId>
-            <scope>test</scope>
-        </dependency>
-
-        <dependency>
-            <groupId>org.junit.jupiter</groupId>
-            <artifactId>junit-jupiter-params</artifactId>
-            <scope>test</scope>
-        </dependency>
-
-        <dependency>
-            <groupId>org.junit.platform</groupId>
-            <artifactId>junit-platform-launcher</artifactId>
-            <scope>test</scope>
-        </dependency>
-
-        <dependency>
-            <groupId>org.junit.platform</groupId>
-            <artifactId>junit-platform-engine</artifactId>
-            <scope>test</scope>
-        </dependency>
-
-        <dependency>
-            <groupId>org.junit.jupiter</groupId>
-            <artifactId>junit-jupiter-engine</artifactId>
-            <scope>test</scope>
-        </dependency>
-
-        <dependency>
-            <groupId>org.junit.platform</groupId>
-            <artifactId>junit-platform-commons</artifactId>
+            <artifactId>junit-jupiter</artifactId>
+            <version>${dep.junit.version}</version>
             <scope>test</scope>
         </dependency>
 
@@ -191,7 +157,7 @@
             <properties>
                 <!-- skip _compiling_ the tests -->
                 <maven.test.skip>true</maven.test.skip>
-                <!-- skip test execution -->
+                <!-- skip execution of tests -->
                 <skipTests>true</skipTests>
 
                 <maven.javadoc.skip>true</maven.javadoc.skip>
