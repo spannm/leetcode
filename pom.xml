@@ -54,7 +54,7 @@
         <dep.slf4j.version>2.0.17</dep.slf4j.version>
 
         <dep.junit.version>6.0.1</dep.junit.version>
-        <dep.assertj.version>3.27.3</dep.assertj.version>
+        <dep.assertj.version>3.27.7</dep.assertj.version>
 
         <basepom.check.fail-dependency>false</basepom.check.fail-dependency>
         <basepom.check.skip-spotbugs>true</basepom.check.skip-spotbugs>
