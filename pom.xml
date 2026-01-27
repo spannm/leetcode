@@ -7,7 +7,7 @@
     <parent>
         <groupId>org.basepom</groupId>
         <artifactId>basepom-oss</artifactId>
-        <version>66</version>
+        <version>67</version>
     </parent>
 
     <groupId>io.github.spannm</groupId>
@@ -49,12 +49,13 @@
         <githubBaseUrl>https://github.com/${developerId}/</githubBaseUrl>
 
         <dep.plugin.sortpom.version>4.0.0</dep.plugin.sortpom.version>
+        <dep.plugin.versions.version>2.21.0</dep.plugin.versions.version>
 
         <dep.javapoet.version>1.13.0</dep.javapoet.version>
         <dep.slf4j.version>2.0.17</dep.slf4j.version>
 
-        <dep.junit.version>6.0.1</dep.junit.version>
-        <dep.assertj.version>3.27.3</dep.assertj.version>
+        <dep.junit.version>6.0.2</dep.junit.version>
+        <dep.assertj.version>3.27.7</dep.assertj.version>
 
         <basepom.check.fail-dependency>false</basepom.check.fail-dependency>
         <basepom.check.skip-spotbugs>true</basepom.check.skip-spotbugs>
@@ -144,6 +145,26 @@
 
             </plugins>
         </pluginManagement>
+
+        <plugins>
+
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>versions-maven-plugin</artifactId>
+                <version>${dep.plugin.versions.version}</version>
+                <configuration>
+                    <ruleSet>
+                        <ignoreVersions>
+                            <ignoreVersion>
+                                <type>regex</type>
+                                <version>.*(?i)(alpha|beta|rc|cr|preview|milestone|[mb][0-9]+).*</version>
+                            </ignoreVersion>
+                        </ignoreVersions>
+                    </ruleSet>
+                </configuration>
+            </plugin>
+
+        </plugins>
 
     </build>
 
