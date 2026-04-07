@@ -1,190 +1,199 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-    <modelVersion>4.0.0</modelVersion>
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
 
-    <parent>
-        <groupId>org.basepom</groupId>
-        <artifactId>basepom-oss</artifactId>
-        <version>68</version>
-    </parent>
+	<parent>
+		<groupId>org.basepom</groupId>
+		<artifactId>basepom-oss</artifactId>
+		<version>69</version>
+	</parent>
 
-    <groupId>io.github.spannm</groupId>
-    <artifactId>leetcode</artifactId>
-    <version>1.0.0-SNAPSHOT</version>
-    <packaging>jar</packaging>
+	<groupId>io.github.spannm</groupId>
+	<artifactId>leetcode</artifactId>
+	<version>1.0.0-SNAPSHOT</version>
+	<packaging>jar</packaging>
 
-    <name>${project.artifactId}</name>
-    <description>Solutions to LeetCode coding problems</description>
-    <url>${githubBaseUrl}${project.artifactId}</url>
-    <inceptionYear>2023</inceptionYear>
+	<name>${project.artifactId}</name>
+	<description>Solutions to LeetCode coding problems</description>
+	<url>${githubBaseUrl}${project.artifactId}</url>
+	<inceptionYear>2023</inceptionYear>
 
-    <licenses>
-        <license>
-           <name>MIT License</name>
-           <url>${project.url}/blob/master/LICENSE</url>
-       </license>
-    </licenses>
+	<licenses>
+		<license>
+		<name>MIT License</name>
+		<url>${project.url}/blob/master/LICENSE</url>
+	</license>
+	</licenses>
 
-    <developers>
-        <developer>
-            <id>${developerId}</id>
-            <name>Markus Spann</name>
-            <email>spannm@outlook.de</email>
-            <organizationUrl>https://github.com/${developerId}/</organizationUrl>
-        </developer>
-    </developers>
+	<developers>
+		<developer>
+			<id>${developerId}</id>
+			<name>Markus Spann</name>
+			<email>spannm@outlook.de</email>
+			<organizationUrl>https://github.com/${developerId}/</organizationUrl>
+		</developer>
+	</developers>
 
-    <properties>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
-        <!-- The minimum JDK version required to build. -->
-        <project.build.systemJdk>17</project.build.systemJdk>
-        <!-- The default build target. -->
-        <project.build.targetJdk>17</project.build.targetJdk>
+		<!-- The minimum JDK version required to build. -->
+		<project.build.systemJdk>17</project.build.systemJdk>
+		<!-- The default build target. -->
+		<project.build.targetJdk>17</project.build.targetJdk>
 
-        <developerId>spannm</developerId>
-        <githubBaseUrl>https://github.com/${developerId}/</githubBaseUrl>
+		<developerId>spannm</developerId>
+		<githubBaseUrl>https://github.com/${developerId}/</githubBaseUrl>
 
-        <dep.plugin.sortpom.version>4.0.0</dep.plugin.sortpom.version>
-        <dep.plugin.versions.version>2.21.0</dep.plugin.versions.version>
+		<dep.plugin.sortpom.version>4.0.0</dep.plugin.sortpom.version>
+		<dep.plugin.versions.version>2.21.0</dep.plugin.versions.version>
 
-        <dep.javapoet.version>1.13.0</dep.javapoet.version>
-        <dep.slf4j.version>2.0.17</dep.slf4j.version>
+		<dep.javapoet.version>1.13.0</dep.javapoet.version>
+		<dep.slf4j.version>2.0.17</dep.slf4j.version>
 
-        <dep.junit.version>6.0.2</dep.junit.version>
-        <dep.assertj.version>3.27.7</dep.assertj.version>
+		<dep.junit.version>6.0.3</dep.junit.version>
+		<dep.assertj.version>3.27.7</dep.assertj.version>
 
-        <basepom.check.fail-dependency>false</basepom.check.fail-dependency>
-        <basepom.check.skip-spotbugs>true</basepom.check.skip-spotbugs>
-        <basepom.check.skip-license>true</basepom.check.skip-license>
+		<dep.checkstyle.version>12.3.1</dep.checkstyle.version>
 
-        <basepom.javadoc.skip>false</basepom.javadoc.skip>
-        <basepom.javadoc.show>protected</basepom.javadoc.show>
+		<basepom.check.fail-dependency>false</basepom.check.fail-dependency>
+		<basepom.check.skip-spotbugs>true</basepom.check.skip-spotbugs>
+		<basepom.check.skip-license>true</basepom.check.skip-license>
 
-        <basepom.site.scm.branch>master</basepom.site.scm.branch>
-        <basepom.site.skip-deploy>false</basepom.site.skip-deploy>
-    </properties>
+		<basepom.javadoc.skip>false</basepom.javadoc.skip>
+		<basepom.javadoc.show>protected</basepom.javadoc.show>
 
-    <dependencies>
+		<basepom.site.scm.branch>master</basepom.site.scm.branch>
+		<basepom.site.skip-deploy>false</basepom.site.skip-deploy>
+	</properties>
 
-        <dependency>
-            <groupId>com.squareup</groupId>
-            <artifactId>javapoet</artifactId>
-            <version>${dep.javapoet.version}</version>
-            <scope>test</scope>
-        </dependency>
+	<dependencies>
 
-        <dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>slf4j-api</artifactId>
-            <version>${dep.slf4j.version}</version>
-            <scope>test</scope>
-        </dependency>
+		<dependency>
+			<groupId>com.squareup</groupId>
+			<artifactId>javapoet</artifactId>
+			<version>${dep.javapoet.version}</version>
+			<scope>test</scope>
+		</dependency>
 
-        <dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>slf4j-simple</artifactId>
-            <version>${dep.slf4j.version}</version>
-            <scope>test</scope>
-        </dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+			<version>${dep.slf4j.version}</version>
+			<scope>test</scope>
+		</dependency>
 
-        <dependency>
-            <groupId>org.junit.jupiter</groupId>
-            <artifactId>junit-jupiter</artifactId>
-            <version>${dep.junit.version}</version>
-            <scope>test</scope>
-        </dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-simple</artifactId>
+			<version>${dep.slf4j.version}</version>
+			<scope>test</scope>
+		</dependency>
 
-        <dependency>
-            <groupId>org.assertj</groupId>
-            <artifactId>assertj-core</artifactId>
-            <version>${dep.assertj.version}</version>
-            <scope>test</scope>
-        </dependency>
+		<dependency>
+			<groupId>org.junit.jupiter</groupId>
+			<artifactId>junit-jupiter</artifactId>
+			<version>${dep.junit.version}</version>
+			<scope>test</scope>
+		</dependency>
 
-    </dependencies>
+		<dependency>
+			<groupId>org.assertj</groupId>
+			<artifactId>assertj-core</artifactId>
+			<version>${dep.assertj.version}</version>
+			<scope>test</scope>
+		</dependency>
 
-    <build>
+	</dependencies>
 
-        <defaultGoal>clean verify</defaultGoal>
+	<build>
 
-        <pluginManagement>
+		<defaultGoal>clean verify</defaultGoal>
 
-            <plugins>
+		<pluginManagement>
 
-                <plugin>
-                    <artifactId>maven-checkstyle-plugin</artifactId>
-                    <configuration>
-                        <configLocation>src/test/resources/team/checkstyle-rules.xml</configLocation>
-                    </configuration>
-                </plugin>
+			<plugins>
 
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-pmd-plugin</artifactId>
-                    <configuration>
-                        <rulesets>
-                            <ruleset>src/test/resources/team/pmd-rules.xml</ruleset>
-                        </rulesets>
-                    </configuration>
-                </plugin>
+				<plugin>
+					<artifactId>maven-checkstyle-plugin</artifactId>
+					<configuration>
+						<configLocation>src/test/resources/team/checkstyle-rules.xml</configLocation>
+					</configuration>
+					<dependencies>
+						<dependency>
+							<groupId>com.puppycrawl.tools</groupId>
+							<artifactId>checkstyle</artifactId>
+							<version>${dep.checkstyle.version}</version>
+						</dependency>
+					</dependencies>
+				</plugin>
 
-                <plugin>
-                    <groupId>com.github.ekryd.sortpom</groupId>
-                    <artifactId>sortpom-maven-plugin</artifactId>
-                    <version>${dep.plugin.sortpom.version}</version>
-                    <configuration>
-                        <createBackupFile>false</createBackupFile>
-                        <expandEmptyElements>false</expandEmptyElements>
-                        <nrOfIndentSpace>4</nrOfIndentSpace>
-                    </configuration>
-                </plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-pmd-plugin</artifactId>
+					<configuration>
+						<rulesets>
+							<ruleset>src/test/resources/team/pmd-rules.xml</ruleset>
+						</rulesets>
+					</configuration>
+				</plugin>
 
-            </plugins>
-        </pluginManagement>
+				<plugin>
+					<groupId>com.github.ekryd.sortpom</groupId>
+					<artifactId>sortpom-maven-plugin</artifactId>
+					<version>${dep.plugin.sortpom.version}</version>
+					<configuration>
+						<createBackupFile>false</createBackupFile>
+						<expandEmptyElements>false</expandEmptyElements>
+						<nrOfIndentSpace>4</nrOfIndentSpace>
+					</configuration>
+				</plugin>
 
-        <plugins>
+			</plugins>
+		</pluginManagement>
 
-            <plugin>
-                <groupId>org.codehaus.mojo</groupId>
-                <artifactId>versions-maven-plugin</artifactId>
-                <version>${dep.plugin.versions.version}</version>
-                <configuration>
-                    <ruleSet>
-                        <ignoreVersions>
-                            <ignoreVersion>
-                                <type>regex</type>
-                                <version>.*(?i)(alpha|beta|rc|cr|preview|milestone|[mb][0-9]+).*</version>
-                            </ignoreVersion>
-                        </ignoreVersions>
-                    </ruleSet>
-                </configuration>
-            </plugin>
+		<plugins>
 
-        </plugins>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>versions-maven-plugin</artifactId>
+				<version>${dep.plugin.versions.version}</version>
+				<configuration>
+					<ruleSet>
+						<ignoreVersions>
+							<ignoreVersion>
+								<type>regex</type>
+								<version>.*(?i)(alpha|beta|rc|cr|preview|milestone|[mb][0-9]+).*</version>
+							</ignoreVersion>
+						</ignoreVersions>
+					</ruleSet>
+				</configuration>
+			</plugin>
 
-    </build>
+		</plugins>
 
-    <profiles>
-        <profile>
-            <id>fast</id>
-            <!-- Profile to skip time-consuming steps. -->
-            <activation>
-                <activeByDefault>false</activeByDefault>
-            </activation>
-            <properties>
-                <!-- skip _compiling_ the tests -->
-                <maven.test.skip>true</maven.test.skip>
-                <!-- skip execution of tests -->
-                <skipTests>true</skipTests>
+	</build>
 
-                <maven.javadoc.skip>true</maven.javadoc.skip>
-                <basepom.check.skip-extended>true</basepom.check.skip-extended>
-            </properties>
-        </profile>
-    </profiles>
+	<profiles>
+		<profile>
+			<id>fast</id>
+			<!-- Profile to skip time-consuming steps. -->
+			<activation>
+				<activeByDefault>false</activeByDefault>
+			</activation>
+			<properties>
+				<!-- skip _compiling_ the tests -->
+				<maven.test.skip>true</maven.test.skip>
+				<!-- skip execution of tests -->
+				<skipTests>true</skipTests>
+
+				<maven.javadoc.skip>true</maven.javadoc.skip>
+				<basepom.check.skip-extended>true</basepom.check.skip-extended>
+			</properties>
+		</profile>
+	</profiles>
 
 </project>
